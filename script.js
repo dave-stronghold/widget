@@ -26,6 +26,10 @@ document.getElementById("insertButton").addEventListener("click", () => {
         } else {
           console.error(`Selector "${selector}" not found.`);
         }
+        const articleElement = document.querySelector(".main_slider article");
+        if (articleElement) {
+          articleElement.style.display = "none";
+        }
       }
       
       function skyline() {
