@@ -120,6 +120,27 @@ function insertHtmlElement(domain) {
 
   }
 
+  function primemeridian(){
+    const selector1='body > div.elementor.elementor-33 > section.elementor-section.elementor-top-section.elementor-element.elementor-element-2a22658.elementor-section-full_width.elementor-section-content-middle.elementor-section-height-default.elementor-section-height-default > div.elementor-container.elementor-column-gap-no > div.elementor-column.elementor-col-66.elementor-top-column.elementor-element.elementor-element-84fdc95 > div > div > div'
+    const selector2='body > div.elementor.elementor-33 > section.elementor-section.elementor-top-section.elementor-element.elementor-element-9c95795.elementor-section-full_width.elementor-section-height-min-height.elementor-section-height-default.elementor-section-items-middle.lazyloaded'
+    const image=`${selector1} img`
+    const htmlElement=rawIframe
+    const targetElement1=document.querySelector(selector1)
+    const targetElement2=document.querySelector(selector2)
+    if(targetElement1){
+      targetElement1.insertAdjacentHTML("afterbegin", htmlElement);
+    }
+    if(targetElement2){
+      targetElement2.insertAdjacentHTML("afterbegin", htmlElement);
+    }
+    else {
+      console.error(`Selector "${selector1}" not found.`);
+    }
+    document.querySelector(image).style.display='none'
+    document.querySelector(`.elementor-element-9c95795 > .elementor-container`).style.display='none'
+        
+  }
+
   // This should now work
   switch (domain) {
     case "arkbuilders.co.in":
@@ -130,6 +151,9 @@ function insertHtmlElement(domain) {
       break;
     case "dacdevelopers.com":
       dac();
+      break;
+    case "primemeridian.in":
+      primemeridian();
       break;
     default:
       console.log("Domain not recognized");
