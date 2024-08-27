@@ -171,12 +171,20 @@ function insertHtmlElement(domain) {
       "#__next > main > section.ProjectDetails_project_banner__7nB3J.visible > div.carousel.slide > div > div"
     ).style.display = "none";
     const targetElement = document.querySelector(selector);
-    if (targetElement) {
+    if (targetElement) {  
       targetElement.insertAdjacentHTML("afterbegin", htmlElement);
     } else {
       console.error(`Selector "${selector}" not found.`);
     }
   }
+
+  function sisflorence(){
+    const selector = ".section_1";
+    document.querySelector(selector).insertAdjacentHTML('afterbegin',rawIframe);
+    document.querySelector('#home > div.bg-responsive.bg-banner-first').style.display='none'  
+    document.querySelector('#virtualtour').style.marginTop='120px'  
+  }
+
   // This should now work
   switch (domain) {
     case "arkbuilders.co.in":
@@ -193,6 +201,9 @@ function insertHtmlElement(domain) {
       break;
     case "www.kenthomes.in":
       kenthomes();
+      break;
+    case "www.sis.in":
+      sisflorence();
       break;
     default:
       console.log("Domain not recognized");
